@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("ff.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            height: 400px;
+            width: 600px;
+
+            padding: 20px;
+            font-size: medium;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            border-color: black;
+            background-color: aqua;
+        }
+
+
+        .head{
+            color:#ff2b5d;
+            border-color: black;
+
+        }
+        .date{
+            color:black;
+            background-color:greenyellow;
+            border-radius: 30px;
+            height: 30px;
+            width: 150px;
+
+        }
+        .button{
+            background-color: burlywood;
+            border-radius:30px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="head"><b><u>Age Calculator !</u></b></h1><hr><br>
+
+    <label for="birthDate"><b>Date of Birth:</b></label>
+    <input class="date" type="date" id="birthDate">......
+
+    <button class="button" onclick="calculateAge()">Calculate Age</button>
+    <h4>Your age is: <span id="result"></span></h4>
+    <pre> <h2>...< THANK YOU FOR YOUR PARTICIPATION >...</h2></pre>
+    <img src="gh.gif" style="height: 200px">
+
+</div>
+
+<script>
+    function calculateAge() {
+        var birthDate = document.getElementById('birthDate').value;
+        var today = new Date();
+        var birthDateObj = new Date(birthDate);
+        var age = today.getFullYear() - birthDateObj.getFullYear();
+        var monthDiff = today.getMonth() - birthDateObj.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+            age--;
+        }
+        document.getElementById('result').textContent = age + " years old";
+    }
+</script>
+</body>
+</html>
